@@ -7,9 +7,24 @@ function DestinationPage (){
 
    const [error, setError]= useState(null);
 
-
-   useEffect(() => {
-
-    fetch()
-   })
+const getAccessToken = async () => {
+    try {
+        const response = await axios.get("https://test.api.amadeus.com/v1/reference-data/locations",
+            {
+                params: {
+                    keyword: "Paris",
+                    subType: "City"
+                },
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            }
+        );
+        setDestinationData(response.data.data[0]);
+        setLoading(false);
+    }catch 
 }
+
+   
+   }
+
