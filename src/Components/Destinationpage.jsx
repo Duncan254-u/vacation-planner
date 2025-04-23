@@ -22,9 +22,19 @@ const getAccessToken = async () => {
         );
         setDestinationData(response.data.data[0]);
         setLoading(false);
-    }catch 
+    }catch (error) {
+        setError("Failed to fetch city details");
+        setLoading(false);
+        console.log(error);
+    }
+};
+useEffect(() => {
+    fetchCityDetails();
+
+   }, []);
+   if (loading) return <p>Loading destination details..</p>
+
+   if (error) return <p>{error}</p>
+
+   ret
 }
-
-   
-   }
-
